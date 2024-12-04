@@ -1,0 +1,593 @@
+
+.intro-video {
+    position: relative;
+    width: 100vw;
+    height: 900px;
+    flex-shrink: 0px;
+}
+
+.intro-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.intro-video-text {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 80px;
+    gap: 32px;
+    border-radius: 0px 60px 60px 0px;
+    z-index: 1;
+
+    left: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.intro-video-text .text-container h1 {
+    width: 305px;
+    color: #ffffff;
+    font-family: "Lato";
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+    margin: 0px;
+}
+
+
+.contentIntroduce {
+    margin-top: 100px;
+    display: flex;
+    /* width: 120px; */
+    justify-content: center; /* Phân bố không gian giữa các phần */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 500px; 
+    padding: 20px;
+    background-color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+.left-contentIntroduce {
+    flex-shrink: 0; /* Đảm bảo phần trái không thay đổi kích thước */
+}
+
+.left-contentIntroduce h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin: 0;
+}
+
+.left-contentIntroduce span {
+    font-size: 2.5em;
+    color: #B11264;
+    font-weight: bold;
+}
+
+.left-contentIntroduce .icon {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #d19cb8;
+    margin-right: 5px;
+    transform: rotate(45deg);
+}
+
+.right-contentIntroduce {
+    flex-shrink: 0; /* Đảm bảo phần phải giữ nguyên kích thước */
+    width: 300px;
+    color: #333;
+    line-height: 1.6;
+    font-size: 1.1em;
+}
+
+.left-contentIntroduce h1 span {
+    display: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.left-contentIntroduce h1 span:first-child {
+    display: inline-block;
+}
+
+
+.number-section {
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    background-color: #f4f6f8;
+}
+
+/* Cột ảnh */
+.image-content {
+    flex: 1;
+}
+
+.image-content img {
+    width: 50%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Cột thống kê */
+.stats-content {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    background-color: #f4f6f8;
+}
+
+.stat-item {
+    width: 300px;
+    border-top: 2px solid #2a2e3a;
+    text-align: center;
+    background-color: #f4f6f8;
+    padding: 20px;
+    /* border-radius: 5px; */
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+}
+
+.stat-item h2 {
+    font-size: 2.5em;
+    color: #B11264;
+    margin: 0;
+}
+
+.stat-item p {
+    font-size: 1em;
+    color: #333;
+    margin: 5px 0 0;
+}
+
+
+.ourSolution {
+    margin-top: 100px;
+    text-align: center;
+    font-family: "Lato";
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.gridSolution {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Tăng kích thước tối thiểu */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.solution {
+    display: flex;
+    flex-direction: row; /* Thay đổi từ column sang row */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa img và h2 */
+    min-height: 250px;
+    text-align: left; /* Thay đổi text-align sang left */
+    background: #fff;
+    transition: transform ease;
+    cursor: pointer;
+}
+
+.solution img {
+    max-width: 70px;
+    margin-bottom: 0; /* Loại bỏ margin-bottom cũ */
+    transition: opacity 0.5s ease;
+}
+
+.solution h2 {
+    font-family: "Lato";
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 700;
+    margin: 0;
+    color: #555;
+    flex-grow: 1; /* Cho h2 chiếm không gian còn lại */
+    transition: font-size 0.5s ease;
+}
+.contentSolution {
+    text-align: center;
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    color: #fff;
+    font-size: 16px;
+    opacity: 0;
+    transform: translateY(50%);
+    transition: all 0.5s ease;
+}
+.solution:hover {
+    transform: scale(1.05);
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.solution:hover h2 {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+}
+.solution:hover .contentSolution {
+    opacity: 1;
+    transform: translateY(0);
+}
+.solution:hover img {
+    opacity: 0; /* Ẩn ảnh */
+}
+
+.solution:nth-child(1):hover {
+    background-color: #2980b9; /* Xanh dương đậm */
+    color: white;
+}
+
+.solution:nth-child(2):hover {
+    background-color: #27ae60; /* Xanh lá đậm */
+    color: white;
+}
+
+.solution:nth-child(3):hover {
+    background-color: #d35400; /* Cam đậm */
+    color: white;
+}
+
+.solution:nth-child(4):hover {
+    background-color: #8e44ad; /* Tím đậm */
+    color: white;
+}
+
+.solution:nth-child(5):hover {
+    background-color: #16a085; /* Xanh ngọc đậm */
+    color: white;
+}
+
+.solution:nth-child(6):hover {
+    background-color: #c0392b; /* Đỏ đậm */
+    color: white;
+}
+
+
+.whatourcustomersay {
+    margin-top: 80px;
+    font-family: "Lato";
+    font-style: normal;
+    background-color: #3C1361;
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.whatourcustomersay h2 {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.testimonial-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.testimonial-image img {
+    border-radius: 10px;
+    width: 200px;
+}
+
+.testimonial-quote {
+    text-align: left;
+    max-width: 600px;
+}
+
+.testimonial-quote p {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    margin: 10px 0;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.testimonial-quote .quote-author {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.testimonial-quote .quote-position {
+    color: #a8a8a8;
+}
+
+.trusted-enterprises {
+    margin-top: 50px;
+}
+
+.trusted-enterprises h3 {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    margin-bottom: 20px;
+    /* font-size: 1.5rem; */
+}
+
+.enterprise-logos {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.enterprise-logos img {
+    height: 50px;
+    max-width: 100px;
+}
+.insightResource {
+    margin-top: 100px;
+    font-family: "Lato";
+    /* background-color: #16a085; */
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.insightResource-header {
+    display: flex;
+    justify-content: space-between; /* Đẩy các phần tử về hai đầu */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    padding: 10px 20px; /* Thêm padding để tạo khoảng cách */
+}
+
+.insightResource-header h1 {
+    font-family: "Lato";
+    /* font-size: 25px; */
+    font-style: normal;
+    margin: 0;
+    font-size: 35px;
+    font-weight: 700;
+    color: rgb(0, 0, 0); /* Đảm bảo màu chữ dễ đọc */
+}
+
+.explore {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Khoảng cách ban đầu */
+    color: white;
+    cursor: pointer;
+}
+
+.explore a {
+    position: relative;
+    text-decoration: none;
+    color: brown;
+    transition: all 0.3s ease;
+}
+
+.explore a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: brown;
+    transition: width 0.3s ease;
+}
+
+.explore:hover a {
+    gap: 5px; /* Giảm khoảng cách khi hover */
+}
+
+.explore:hover a::after {
+    width: 100%; 
+}
+
+.showIS {
+margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Khoảng cách giữa các box */
+    width: 100%; /* Chiếm full width của container cha */
+}
+
+.box-showIS {
+    flex: 1;
+    height: 300px;
+    /* background-color: #f0f0f0; */
+    /* border: 1px solid #ddd; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.box-showIS:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.box-showIS a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.imgIS {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.imgIS img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.box-showIS:hover .imgIS img {
+    transform: scale(1.05);
+}
+
+.imgIS::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: brown;
+    transition: width 0.3s ease;
+}
+
+.box-showIS:hover .imgIS img {
+    transform: scale(1.05);
+}
+
+.box-showIS:hover .imgIS::after {
+    width: 100%;
+}
+.box-showIS h2 {
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    font-style: normal;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px;
+    line-height: 1.3;
+}
+
+.ourPartnerships {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+    overflow: hidden;
+    max-width: 100%; 
+    margin: 0 auto; 
+    justify-content: center; 
+    background-color: #f1f3f6;
+    height: 200px;
+}
+
+.ourPartnerships h1 {
+    font-family: "Lato", sans-serif;
+    white-space: nowrap;
+    /* min-width: fit-content; */
+    margin: 0;
+    color: #000000; /* Màu chữ trắng để tương phản với nền */
+}
+
+.showPartnership {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px; /* Giới hạn chiều rộng của phần slideshow */
+    min-height: 40px; /* Đảm bảo chiều cao tối thiểu cho nội dung */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.showPartnership h2 {
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    font-family: "Lato", sans-serif;
+    font-size: 24px;
+    color: #000000; /* Màu chữ trắng để tương phản với nền */
+}
+
+.showPartnership h2.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.showPartnership h2.prev {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+/* Container cho toàn bộ section */
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .ourPartnerships {
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .showPartnership {
+        max-width: 100%;
+    }
+
+    .showPartnership h2 {
+        font-size: 20px;
+    }
+}
+
+
+.getintouchADS {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+.getintouchADS img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Giúp ảnh không bị méo */
+}
+
+.getintouchADS h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white; /* Màu chữ trắng để dễ đọc trên ảnh */
+    width: 80%; /* Để text không bị sát lề */
+    margin: 0;
+    /* Thêm text-shadow để text dễ đọc hơn trên ảnh */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+}

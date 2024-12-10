@@ -1,23 +1,22 @@
-FROM php:8.2-fpm
-
-# Cài đặt các extension PHP cần thiết cho Laravel
-RUN apt-get update && apt-get install -y \
-    libpng-dev libjpeg-dev libfreetype6-dev libzip-dev \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd zip
-
-# Cài đặt Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+FROM webdevops/php-nginx:8.1
 
 # Copy mã nguồn vào container
 COPY . /var/www/html
 
-# Set các quyền cho thư mục
-RUN chown -R www-data:www-data /var/www/html
+# Image config
+ENV SKIP_COMPOSER 1
+ENV WEBROOT /var/www/html/public  # Trỏ đến thư mục public
+ENV PHP_ERRORS_STDERR 1
+ENV RUN_SCRIPTS 1
+ENV REAL_IP_HEADER 1
 
-# Cài đặt các phụ thuộc của Composer
-WORKDIR /var/www/html
-RUN composer install --no-dev --optimize-autoloader --verbose
+# Laravel config
+ENV APP_ENV production
+ENV APP_DEBUG false
+ENV LOG_CHANNEL stderr
 
-# Chạy Nginx
+# Allow composer to run as root
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+# Chạy supervisord để khởi động PHP-FPM và Nginx
 CMD ["supervisord"]

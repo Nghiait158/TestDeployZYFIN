@@ -1,6 +1,7 @@
 FROM webdevops/php-nginx:8.1
 
-COPY . .
+# Copy mã nguồn vào container
+COPY . /var/www/html
 
 # Image config
 ENV SKIP_COMPOSER 1
@@ -17,4 +18,5 @@ ENV LOG_CHANNEL stderr
 # Allow composer to run as root
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-CMD ["/start.sh"]
+# Chạy supervisord để khởi động PHP-FPM và Nginx
+CMD ["supervisord"]

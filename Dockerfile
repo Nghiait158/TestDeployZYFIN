@@ -1,7 +1,7 @@
 FROM webdevops/php-nginx:8.1
 
 # Copy mã nguồn vào container
-COPY . /var/www/html
+COPY . /var/www/testdeploy
 
 # Image config
 ENV SKIP_COMPOSER 1

@@ -1,0 +1,243 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 100vh;
+  }
+  
+.contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.image-section {
+    flex: 1;
+    background-color: rgb(248, 243, 236);
+    padding: 40px;
+    position: relative; /* Để sử dụng absolute positioning */
+    text-align: center;
+}
+
+.image-section img {
+    width: 100%; /* Hình ảnh sẽ vừa với chiều rộng */
+    height: auto; /* Giữ tỉ lệ của hình ảnh */
+    display: block; /* Bỏ khoảng trắng dưới hình ảnh */
+    position: relative; /* Đảm bảo nó là nền cho text */
+    z-index: 0; /* Đặt dưới chữ */
+}
+
+.text-overlay {
+    position: absolute; /* Đặt chữ chồng lên hình */
+    top: 50%; /* Canh giữa theo chiều dọc */
+    left: 50%; /* Canh giữa theo chiều ngang */
+    transform: translate(-50%, -50%); /* Đưa tâm vào giữa */
+    z-index: 1; /* Đặt chữ nằm trên hình */
+    color: #ffffff; /* Màu chữ, tùy chỉnh */
+}
+
+.image-section h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.image-section p {
+    color: var(--e-global-color-astglobalcolor3);
+    font-family: "Mulish", Sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.form-section {
+    flex: 1;
+    background: #fff;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-section h2 {
+    color: var(--e-global-color-astglobalcolor3);
+    font-family: "Mulish", Sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+}
+.error {
+    color: red;
+    font-size: 12px;
+    position: absolute;
+    top: -20px; /* Vị trí lỗi từ trên xuống */
+    right: 0; /* Vị trí lỗi từ bên phải */
+    margin-right: 5px; /* Đảm bảo lỗi không quá gần lề */
+    padding: 5px;
+}
+/* Container form */
+.input-form {
+    margin-bottom: 20px;
+    position: relative;
+    width: 600px;
+    padding: 15px 15px 0 15px;
+    font-size: 1rem;
+    /* border: 1px solid #ccc; */
+    border-radius: 5px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); 
+    background-color: #f5f6f8;
+}
+.input-form:hover, 
+.input-form:focus-within {
+    background-color: #f5f6f8;
+    border-bottom: 2px solid #2a2e3a; /* Tăng độ nổi bật */
+}
+
+.input-field:focus {
+    outline: none; /* Ẩn viền mặc định của trình duyệt */
+}
+/* Input, Select, and Textarea */
+.input-field,
+.input-fieldSupport,
+.input-field + textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    background-color: #f5f6f8;
+    resize: none; /* Disable resizing for textarea */
+}
+.input-fieldCountry{
+    border: none;
+    outline: none;
+    width: 100%;
+    /* padding: 10px 0; */
+    font-size: 16px;
+    background-color: #f5f6f8;
+}
+/* Nhãn mặc định */
+.input-form .label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #aaa;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Khi input/textarea/select focus */
+.input-field:focus ~ .label,
+.input-fieldSupport:focus ~ .label,
+.input-fieldCountry:focus ~ .label,
+textarea:focus ~ .label {
+    top: 15px;
+    font-size: 14px;
+    color: #2a2e3a;
+}
+
+/* Khi input/textarea/select có giá trị */
+.input-field:not(:placeholder-shown) ~ .label,
+.input-fieldSupport:valid ~ .label,
+textarea:not(:placeholder-shown) ~ .label {
+    top: 15px;
+    font-size: 14px;
+    color: #2a2e3a;
+}
+
+/* Select Dropdown */
+.input-fieldSupport {
+    appearance: none; /* Remove default dropdown styling */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    position: relative;
+    cursor: pointer;
+}
+
+/* Additional styling for select (optional) */
+.input-fieldSupport {
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="gray" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    padding-right: 30px;
+}
+
+/* Disable resizing on textarea */
+textarea {
+    height: 100px;
+}
+#privacy {
+    width: 15px;  /* Điều chỉnh chiều rộng */
+    height: 15px; /* Điều chỉnh chiều cao */
+    cursor: pointer; /* Thêm con trỏ khi hover */
+}
+
+/* Tùy chỉnh khi checkbox được checked */
+#privacy:checked {
+    background-color: #4CAF50; /* Màu nền khi được chọn */
+}
+
+/* Thêm hiệu ứng khi hover lên checkbox */
+#privacy:hover {
+    transform: scale(1.2); /* Phóng to checkbox khi hover */
+}
+
+
+.email_country{
+    display: flex; /* Đặt hai trường nằm ngang */
+    gap: 16px; /* Khoảng cách giữa các trường */
+    width: 630px; /* Tổng chiều rộng bằng với các trường khác */
+}
+.email_country .input-form {
+    flex: 1; /* Mỗi trường chiếm đều không gian */
+}
+
+.email_country .input-form:nth-child(1) {
+    flex: 3; /* Tăng độ dài trường E-mail */
+}
+
+.email_country .input-form:nth-child(2) {
+    flex: 2; /* Giảm độ dài trường Country */
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.checkbox label {
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
+.checkbox a {
+    color: #0073e6;
+    text-decoration: none;
+}
+
+
+
+#submitBtn {
+    background-color: #ccc; /* Màu xám khi không kích hoạt */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: not-allowed; /* Con trỏ chuột khi không kích hoạt */
+    transition: background-color 0.3s ease;
+}
+
+/* Nút khi kích hoạt */
+#submitBtn.active {
+    background-color: #4CAF50; /* Màu xanh khi kích hoạt */
+    cursor: pointer;
+}
